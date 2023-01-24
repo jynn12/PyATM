@@ -25,14 +25,14 @@ def withdraw():
 	clear_screen()
 	banner()
 	while True:
-		amount = int(input("Enter the amount you want to withdraw: "))
+		amount = int(input("Enter the amount you want to withdraw: ₱"))
 		if amount > user['balance']:
 			print("You have insuffucient balance in your account")
 		else:
 			clear_screen()
 			banner()
 			user['balance'] = user['balance'] - amount
-			print(f"{amount} Succesfully withdrawn")
+			print(f"₱{amount} Succesfully withdrawn")
 			print('')
 			sleep(3)
 			return False
@@ -44,15 +44,15 @@ def deposit():
 	clear_screen()
 	banner()
 	user['balance'] = user['balance'] + amount
-	print(f"Deposited {amount}")
+	print(f"Deposited ₱{amount}")
 	print('')
 	sleep(3)
-	clear_screen()
 	return False
-def balance_inquiry():
+def balance():
 	sleep(0.5)
 	clear_screen()
-	print(f"Total balance {user['balance']}")
+	banner()
+	print(f"Account balance ₱{user['balance']}")
 	print('')
 	sleep(3)
 is_quit = False
@@ -69,13 +69,12 @@ if pin == user['pin']:
 		banner()
 		print("Select Option")
 		print(" [1] : Withdraw \n [2] : Balance \n [3] : Deposit \n [4] : Exit")
-		
 		query = int(input("Enter the number of your choice: "))
 		
 		if query == 1:
 			withdraw()
 		elif query == 2:
-			balance_inquiry()
+			balance()
 		elif query == 3:
 			deposit()
 		elif query == 4:
