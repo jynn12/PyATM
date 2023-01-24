@@ -1,25 +1,30 @@
-###
-## Date    : 01-24-23
-## Author  : Jy4n
-## License : MIT
-###
+###                  ###
+## Date    : 01-24-23 ##
+## Author  : Jy4n     ##
+## License : MIT      ##
+###m                 ###
 
 import os
-from time import sleep
 import json
+import colorama
+from colorama import Fore, Back, Style
+from time import sleep
+
+# Initialize the colors lol
+colorama.init()
 
 # Load the json file
 
-data = open('account.json',)
-user = json.load(data)
+with open("account.json", "r") as j:
+	user = json.load(j)
 
 def banner():
-	print("+-----------------------------+")
-	print("| Landbank of the Philippines |")
-	print("+-----------------------------+")
-
+	print(Fore.YELLOW + Back.GREEN + "+-----------------------------+")
+	print(Fore.YELLOW + "|" + Fore.WHITE + " Landbank of the Philippines " + Fore.YELLOW + "|" + Style.RESET_ALL)
+	print(Fore. YELLOW + Back.GREEN + "+-----------------------------+" + Style.RESET_ALL)
 def clear_screen():
 	os.system("clear")
+
 def withdraw():
 	sleep(0.5)
 	clear_screen()
@@ -36,6 +41,7 @@ def withdraw():
 			print('')
 			sleep(3)
 			return False
+
 def deposit():
 	sleep(0.5)
 	clear_screen()
@@ -48,6 +54,7 @@ def deposit():
 	print('')
 	sleep(3)
 	return False
+
 def balance():
 	sleep(0.5)
 	clear_screen()
@@ -55,8 +62,8 @@ def balance():
 	print(f"Account balance ₱{user['balance']}")
 	print('')
 	sleep(3)
-is_quit = False
 
+is_quit = False
 clear_screen()
 banner()
 
